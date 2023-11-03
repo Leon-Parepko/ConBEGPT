@@ -1,0 +1,6 @@
+[1] - https://arxiv.org/abs/2109.08914 (How Contextual are Contextualized Word Representations? Comparing the Geometry of BERT, ELMo, and GPT-2 Embeddings)
+[2] - https://arxiv.org/abs/1905.05950 (BERT Rediscovers the Classical NLP Pipeline)
+[3] - https://arxiv.org/abs/1909.00512 (Text Detoxification using Large Pre-trained Neural Models)
+[4] - https://link.springer.com/chapter/10.1007/978-3-030-57805-3_23 (Application of the BERT-Based Architecture in Fake News Detection)
+[5] - https://link.springer.com/chapter/10.1007/978-1-4614-3223-4_6 (A Survey of Text Classification Algorithms)
+[6] - https://link.springer.com/article/10.1007/s10115-023-01856-z (Text classification using embeddings: a survey)
