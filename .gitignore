@@ -1,9 +1,10 @@
 data/interm/gpt2_corpus.txt
 data/interm/filtered_preprocessed.csv
 data/interm/estimator_dataset.csv
+data/interm/train_estimator_preprocessed.csv
+data/interm/test_estimator_preprocessed.csv
 
 data/raw/filtered.tsv
-
 
 models/Gpt2/added_tokens.json
 models/Gpt2/config.json
@@ -14,8 +15,9 @@ models/Gpt2/special_tokens_map.json
 models/Gpt2/tokenizer_config.json
 models/Gpt2/vocab.json
 
-models/best.pt
+models/Estimator/estimator_params.pt
+models/Estimator/vocab.pt
 
-notebooks/TEST_ESTIMATOR.ipynb
+notebooks/estimator_train.ipynb
 notebooks/TEST_DOWNLOAD.ipynb
 

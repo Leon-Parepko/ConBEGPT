@@ -100,7 +100,9 @@ text-detoxification
 │   ├── conbert_inference.ipynb     # shows the inference of con. BERT only
 │   ├── data_preprocessing.ipynb    # manually generate gpt-2 train corpus and estimator dataset
 │   ├── gpt2_fine_tune.ipynb        # manual fine-tune of the gpt-2 model
-│   └── TEST_ESTIMATOR.ipynb
+│   ├── gpt2_inference.ipynb        # shows the inference of gpt-2 only
+│   ├── estimator_inference.ipynb   # shows the inference of estimator only
+│   └── estimator_train.ipynb       # manual training of the estimator
 │   
 ├── references   # Data dictionaries, manuals, and all other explanatory materials.
 │

@@ -60,7 +60,7 @@ def check_files(directory_path, file_list):
     return True
 
 
-def download_data(download_gpt2=False, download_conbert=False, download_datasets=False):
+def download_data(download_gpt2=False, download_conbert=False, download_estimator=True, download_datasets=False):
 
     # Download fine-tuned GPT-2
     gpt_file_list = ['added_tokens.json',
@@ -93,6 +93,17 @@ def download_data(download_gpt2=False, download_conbert=False, download_datasets
             download_and_extract_array('1tEqOzcls_nAAyXNNNgAHo-4PIpCUbHzs', 'models/Conbert/')
         else:
             print("Conditional BERT vocabs are already downloaded.")
+
+
+    # Download Estimator
+    estimator_file_list = ['estimator_params.pt',
+                           'vocab.pt']
+    if download_estimator:
+        if not check_files('models/Estimator/', estimator_file_list):
+            print('Downloading Estimator...')
+            download_and_extract_array('16H2AT_m3LLmL3CGHVXgsXezzNa9gUCXE', 'models/Estimator/')
+        else:
+            print("Estimator is already downloaded.")
 
 
     # Download all datasets (including intermediate)

@@ -1,19 +1,20 @@
 from models.Conbert.conbert_wrapper import Conbert
 from models.Gpt2.gpt2_wrapper import GPT2
-# from models.Estimator.estimator import Estimator
+from models.Estimator.estimator_wrapper import Estimator
 
 
 class Conbergpt():
-    def __init__(self, device, conbert_dir, gpt2_dir):
+    def __init__(self, device, conbert_dir, estimator_dir, gpt2_dir):
         self.device = device
         self.conbert_dir = conbert_dir
         self.gpt2_dir = gpt2_dir
+        self.estimator_dir = estimator_dir
 
         print('Loading Conditional Bert model...')
         self.conbertr = Conbert(device, conbert_dir)
 
         print('Loading Estimator model...')
-        self.estmator = None
+        self.estmator = Estimator(model_dir=estimator_dir, device=device)
 
         print('Loading GPT-2 model...')
         self.gpt2 = GPT2(gpt2_dir)
