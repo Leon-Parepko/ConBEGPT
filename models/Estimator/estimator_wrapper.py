@@ -9,22 +9,45 @@ from nltk.stem import PorterStemmer
 
 
 class TextPreprocessor:
+    """
+    Class combining all the text preprocessing steps.
+    """
     # Clean up and format the text
     nltk.download('punkt')
     nltk.download('stopwords')
 
     def tokenize_text(self, text):
+        """
+        Tokenize the text using nltk's word_tokenize.
+        :param text: input text string
+        :return: list of tokens
+        """
         return word_tokenize(text)
 
     def remove_stop_words(self, tokenized_text):
+        """
+        Remove stop words from the tokenized text.
+        :param tokenized_text: list of tokens
+        :return: list of tokens without stop words
+        """
         stop_words = set(stopwords.words('english'))
         return [word for word in tokenized_text if word not in stop_words]
 
     def stem_words(self, tokenized_text):
+        """
+        Stem the words using nltk's PorterStemmer.
+        :param tokenized_text: list of tokens
+        :return: list of stemmed tokens
+        """
         stemmer = PorterStemmer()
         return [stemmer.stem(word) for word in tokenized_text]
 
     def lower_text(self, text: str):
+        """
+        Lower the text.
+        :param text: input text string
+        :return: lowercased text
+        """
         return text.lower()
 
     def remove_numbers(self, text: str):
@@ -50,6 +73,11 @@ class TextPreprocessor:
         return text_nopunct
 
     def remove_multiple_spaces(self, text: str):
+        """
+        Remove multiple spaces in case of
+        :param text: input text string
+        :return: text without multiple spaces
+        """
         text_no_doublespace = re.sub('\s+', ' ', text).strip()
         return text_no_doublespace
 
@@ -65,6 +93,9 @@ class TextPreprocessor:
 
 
 class Estimator:
+    """
+    Class for the estimator wrapper.
+    """
     def __init__(self, model_dir, device='cpu'):
 
         self.device = device
@@ -88,6 +119,11 @@ class Estimator:
 
 
     def inference(self, text):
+        """
+        Perform inference on the text.
+        :param text: input text string
+        :return: prediction
+        """
         processed_text = self.text_preprocessor.preprocessing_stage(text)
 
         tokenized_text = []

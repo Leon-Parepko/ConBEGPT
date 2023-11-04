@@ -3,6 +3,13 @@ from tqdm import tqdm
 from models.main_model import Conbergpt
 
 def generate_estimator_dataset(data_file_path, save_path):
+    """
+    Function to generate and save train dataset for the Estimator model
+    :param data_file_path: path to the initial .csv dataset
+    :param save_path: path to save the new train dataset
+    :return: None
+    """
+
     df = pd.read_csv(data_file_path, index_col=0)
     toxic_text = df['toxic_text'].values
     de_toxic_text = df['de-toxic_text'].values
@@ -29,6 +36,16 @@ def generate_estimator_dataset(data_file_path, save_path):
 
 
 def generate_gpt2_corpus(data_file_path, save_path, device='cpu', estimator_token=False):
+    """
+    Generates a gpt-2 train corpus from preprocessed dataset.
+    :param data_file_path: path to preprocessed .csv dataset
+    :param save_path: path to save the corpus
+    :param device: device use for preprocessing
+    :param estimator_token: whether to add estimator token to the corpus or not
+    :return: None
+    """
+
+
     df = pd.read_csv(data_file_path, index_col=0)
     toxic_text = df['toxic_text'].values
     de_toxic_text = df['de-toxic_text'].values

@@ -68,15 +68,9 @@ of the Con. BERT generated text to obtain `<E>`, and finally takes
 
 ## How to launch:
 The model uses custom wrappers over the existing gpt-2 and bert models, so the launching process is fairly simple and consists of 2 steps only:
+* Veryfi, you are using python 3.7.x version.
 * Install all the requirements from `/REQIREMENTS.TXT`
 * Inferencing of ConBEGPT model is clearly described in `/notebooks/conbegpt_inference.ipynb`.
-
-[//]: # (* Generate Con. BERT vocabularies by `/notebooks/conbert_compile_vocab.ipynb`)
-
-[//]: # (* Download already trained GPT-2 model via [link]&#40;ref&#41; and extract everything into `/models/Gpt2/`. Or you could manually construct corpus and train it via `/notebooks/data_preprocessing.ipynb` and `/notebooks/gpt2_fine_tune.ipynb` correspondingly. )
-
-[//]: # (* ??? Train estimator ???)
-
 
 
 ## Structure 

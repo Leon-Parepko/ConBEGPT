@@ -3,6 +3,12 @@ import os
 import requests
 
 def download_file_from_google_drive(id, destination):
+    """
+    Downloads a file from Google Drive.
+    :param id: string id of the file
+    :param destination: string path to save the file
+    :return: None
+    """
     URL = "https://docs.google.com/uc?export=download&confirm=1"
 
     session = requests.Session()
@@ -18,6 +24,11 @@ def download_file_from_google_drive(id, destination):
 
 
 def get_confirm_token(response):
+    """
+    Gets the confirmation token from the response.
+    :param response: response from the request
+    :return: string confirmation token
+    """
     for key, value in response.cookies.items():
         if key.startswith("download_warning"):
             return value
@@ -25,6 +36,12 @@ def get_confirm_token(response):
 
 
 def save_response_content(response, destination):
+    """
+    Saves the response content to a file.
+    :param response: the response from the request
+    :param destination: string path to save the file
+    :return: None
+    """
     CHUNK_SIZE = 32768
 
     with open(destination, "wb") as f:
@@ -34,6 +51,12 @@ def save_response_content(response, destination):
 
 
 def download_and_extract_array(id, extract_path):
+    """
+    Downloads a zip file from Google Drive and extracts it to a path.
+    :param id: string id of the file
+    :param extract_path: string path to extract the file
+    :return: None
+    """
     out_file = f'{extract_path}temp_array.zip'
     download_file_from_google_drive(id, out_file)
 
@@ -43,12 +66,14 @@ def download_and_extract_array(id, extract_path):
 
     # Delete the zip file
     os.remove(out_file)
-    return
+    return None
 
 
 def check_files(directory_path, file_list):
     """
     Checks if a list of files exist in a directory path.
+    :param directory_path: string path to the directory
+    :param file_list: list of strings of file names
     """
     if not os.path.exists(directory_path):
         return False
@@ -61,6 +86,14 @@ def check_files(directory_path, file_list):
 
 
 def download_data(download_gpt2=False, download_conbert=False, download_estimator=True, download_datasets=False):
+    """
+    Downloads the data for all the project.
+    :param download_gpt2: boolean to download GPT-2 data
+    :param download_conbert: boolean to download ConBERT data
+    :param download_estimator: boolean to download Estimator data
+    :param download_datasets: boolean to download all datasets
+    :return: None
+    """
 
     # Download fine-tuned GPT-2
     gpt_file_list = ['added_tokens.json',
